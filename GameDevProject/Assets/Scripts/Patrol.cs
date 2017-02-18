@@ -95,22 +95,38 @@ public class Patrol : MonoBehaviour {
 				anim.SetBool("isRunning",true);
 				direction.y = 0;
 
-				this.transform.rotation = Quaternion.Slerp(this.transform.rotation,
-					Quaternion.LookRotation(direction), 0.1f);
+				this.transform.rotation = Quaternion.Slerp(this.transform.rotation,Quaternion.LookRotation(direction), 0.1f);
 				agent.destination = player.position;
 
 
-				if (Vector3.Distance (player.position, this.transform.position) < 5 && angle < 30) {
+				if (Vector3.Distance (player.position, this.transform.position) < 3 && angle < 30) {
 
-					anim.SetBool("isAttacking",true);
-					SceneManager.LoadScene (startAgain.LevelToLoad);
+					state = 3;
 
 				}
 
 			}break;
 
+		case 3: 
+			{
+					anim.SetBool("isAttacking",true);
+
+					StartCoroutine("Example");
+
+					
+
+
+			}break;
+
 		}	
 			
+	}
+
+
+	IEnumerator Example() {
+		
+		yield return new WaitForSeconds(2);
+		SceneManager.LoadScene (startAgain.LevelToLoad);
 	}
 
 }
