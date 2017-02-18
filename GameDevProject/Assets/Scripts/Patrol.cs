@@ -2,6 +2,7 @@
 // Patrol.cs
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public enum State {
 
@@ -22,12 +23,16 @@ public class Patrol : MonoBehaviour {
 	private UnityEngine.AI.NavMeshAgent agent;
 	static Animator anim;
 
+	LoadLevel startAgain;
+
 	private int state = 1;
 
 
 	void Start () {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 		anim = GetComponent<Animator> ();
+
+		startAgain = new LoadLevel ();
 
 		// Disabling auto-braking allows for continuous movement
 		// between points (ie, the agent doesn't slow down as it
@@ -98,15 +103,16 @@ public class Patrol : MonoBehaviour {
 				if (Vector3.Distance (player.position, this.transform.position) < 5 && angle < 30) {
 
 					anim.SetBool("isAttacking",true);
+					SceneManager.LoadScene (startAgain.LevelToLoad);
+
 				}
 
 			}break;
 
 		}	
-
-
-	
+			
 	}
+
 }
 
 
