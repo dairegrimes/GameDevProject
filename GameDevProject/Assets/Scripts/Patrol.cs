@@ -67,20 +67,21 @@ public class Patrol : MonoBehaviour {
 
 		Vector3 direction = player.position - this.transform.position;
 		float angle = Vector3.Angle(direction,this.transform.forward);
-		//float angle = Vector3.Angle(direction,this.transform.forward);
 		switch (state) {
 			
 		case 1:
 			{
 				if (agent.remainingDistance < 0.5f) {
 
-					agent.speed = 50;
+					agent.speed = 5;
 					GotoNextPoint ();
 
 				}
 
-				if (Vector3.Distance (player.position, this.transform.position) < 10 && angle < 30) {
+				if (Vector3.Distance (player.position, this.transform.position) < 5 && angle < 30) {
+					
 					anim.SetBool("isWalking",false);
+					anim.SetBool("isRunning",true);
 					state = 2;
 
 				}
@@ -91,15 +92,14 @@ public class Patrol : MonoBehaviour {
 
 		case 2: 
 			{
-				agent.speed = 100;
-				anim.SetBool("isRunning",true);
+				agent.speed = 30;
 				direction.y = 0;
 
 				this.transform.rotation = Quaternion.Slerp(this.transform.rotation,Quaternion.LookRotation(direction), 0.1f);
 				agent.destination = player.position;
 
 
-				if (Vector3.Distance (player.position, this.transform.position) < 3 && angle < 30) {
+				if (Vector3.Distance (player.position, this.transform.position) < 2) {
 
 					state = 3;
 
