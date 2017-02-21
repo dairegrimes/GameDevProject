@@ -4,14 +4,6 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public enum State {
-
-	WALK,
-	ATTACK,
-	CHASE
-
-}
-
 
 
 public class Patrol : MonoBehaviour {
@@ -71,14 +63,14 @@ public class Patrol : MonoBehaviour {
 			
 		case 1:
 			{
-				if (agent.remainingDistance < 0.5f) {
+				if (agent.remainingDistance < 1f) {
 
-					agent.speed = 5;
+					agent.speed = 10;
 					GotoNextPoint ();
 
 				}
 
-				if (Vector3.Distance (player.position, this.transform.position) < 5 && angle < 30) {
+				if (Vector3.Distance (player.position, this.transform.position) < 10 && angle < 30) {
 					
 					anim.SetBool("isWalking",false);
 					anim.SetBool("isRunning",true);
@@ -110,11 +102,7 @@ public class Patrol : MonoBehaviour {
 		case 3: 
 			{
 					anim.SetBool("isAttacking",true);
-
-					StartCoroutine("Example");
-
-					
-
+					StartCoroutine("Delay");
 
 			}break;
 
@@ -123,7 +111,7 @@ public class Patrol : MonoBehaviour {
 	}
 
 
-	IEnumerator Example() {
+	IEnumerator Delay() {
 		
 		yield return new WaitForSeconds(2);
 		SceneManager.LoadScene (startAgain.LevelToLoad);
