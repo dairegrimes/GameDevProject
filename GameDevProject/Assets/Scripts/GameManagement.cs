@@ -22,7 +22,7 @@ public class GameManagement : MonoBehaviour {
 
 	public void UpdateUI(){
 
-		if(cur_coins <= 0){
+		if(cur_coins <= 0) {
 			Door.SetActive (true);
 
 		}

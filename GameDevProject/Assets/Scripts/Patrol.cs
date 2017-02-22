@@ -24,7 +24,10 @@ public class Patrol : MonoBehaviour {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 		anim = GetComponent<Animator> ();
 
-		startAgain = new LoadLevel ();
+		//startAgain = new LoadLevel ();
+		startAgain = gameObject.AddComponent<LoadLevel>();
+		//startAgain.LevelToLoad = ;
+		//gFactionData = gameObject.AddComponent<FactionData>();
 
 		// Disabling auto-braking allows for continuous movement
 		// between points (ie, the agent doesn't slow down as it
@@ -65,7 +68,7 @@ public class Patrol : MonoBehaviour {
 			{
 				if (agent.remainingDistance < 1f) {
 
-					agent.speed = 10;
+					agent.speed = 5;
 					GotoNextPoint ();
 
 				}
@@ -84,7 +87,7 @@ public class Patrol : MonoBehaviour {
 
 		case 2: 
 			{
-				agent.speed = 30;
+				agent.speed = 20;
 				direction.y = 0;
 
 				this.transform.rotation = Quaternion.Slerp(this.transform.rotation,Quaternion.LookRotation(direction), 0.1f);

@@ -19,3 +19,5 @@
 /Users/dairegrimes/Google Drive/GameDevProject/GameDevProject/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/dairegrimes/Google Drive/GameDevProject/GameDevProject/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/dairegrimes/Google Drive/GameDevProject/GameDevProject/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/dairegrimes/Google Drive/GameDevProject/GameDevProject/Temp/bin/Debug/UnityEngine.Advertisements.dll
+/Users/dairegrimes/Google Drive/GameDevProject/GameDevProject/Temp/bin/Debug/UnityEngine.Purchasing.dll
