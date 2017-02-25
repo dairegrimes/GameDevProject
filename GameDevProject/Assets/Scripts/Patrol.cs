@@ -73,7 +73,7 @@ public class Patrol : MonoBehaviour {
 
 				}
 
-				if (Vector3.Distance (player.position, this.transform.position) < 10 && angle < 30) {
+				if (Vector3.Distance (player.position, this.transform.position) < 10 && angle < 20) {
 					
 					anim.SetBool("isWalking",false);
 					anim.SetBool("isRunning",true);
