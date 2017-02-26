@@ -8,7 +8,6 @@ public class StartMenu : MonoBehaviour
 	public Canvas quitMenu;
 	public Button startText;
 	public Button exitText;
-	LoadLevel startAgain;
 
 	void Start ()
 
@@ -17,7 +16,6 @@ public class StartMenu : MonoBehaviour
 		startText = startText.GetComponent<Button> ();
 		exitText = exitText.GetComponent<Button> ();
 		quitMenu.enabled = false;
-		startAgain = gameObject.AddComponent<LoadLevel>();
 
 	}
 
@@ -43,7 +41,6 @@ public class StartMenu : MonoBehaviour
 
 	{
 		SceneManager.LoadScene (1); //this will load our first level from our build settings. "1" is the second scene in our game
-		startAgain.LevelToLoad ++;
 	}
 
 	public void ExitGame () //This function will be used on our "Yes" button in our Quit menu
