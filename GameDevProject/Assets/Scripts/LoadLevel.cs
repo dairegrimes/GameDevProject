@@ -13,6 +13,7 @@ public class LoadLevel : MonoBehaviour {
 		if(other.gameObject.tag == "player"){
 
 			SceneManager.LoadScene (LevelToLoad);
+			LevelToLoad ++;
 
 		}
 	}

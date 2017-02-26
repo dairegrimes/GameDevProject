@@ -14,7 +14,7 @@ public class Patrol : MonoBehaviour {
 	private int destPoint = 0;
 	private UnityEngine.AI.NavMeshAgent agent;
 	static Animator anim;
-
+	public float maxRayDistance = 15;
 	LoadLevel startAgain;
 
 	private int state = 1;
@@ -39,6 +39,13 @@ public class Patrol : MonoBehaviour {
 		}
 
 
+	void FixedUpdate() {
+
+
+
+	}
+
+
 
 
 
@@ -59,6 +66,20 @@ public class Patrol : MonoBehaviour {
 	void Update () {
 		// Choose the next destination point when the agent gets
 		// close to the current one.
+
+		/*
+		Ray ray = new Ray (transform.position,Vector3.forward);
+
+		RaycastHit hit;
+
+		Debug.DrawLine (transform.position, transform.position + Vector3.forward * maxRayDistance,Color.red);
+
+		if(Physics.Raycast(ray, out hit, maxRayDistance)) {
+
+			Debug.Log ("hello");
+
+		}
+		*/
 
 		Vector3 direction = player.position - this.transform.position;
 		float angle = Vector3.Angle(direction,this.transform.forward);
@@ -87,7 +108,7 @@ public class Patrol : MonoBehaviour {
 
 		case 2: 
 			{
-				agent.speed = 20;
+				agent.speed = 15;
 				direction.y = 0;
 
 				this.transform.rotation = Quaternion.Slerp(this.transform.rotation,Quaternion.LookRotation(direction), 0.1f);
@@ -96,6 +117,7 @@ public class Patrol : MonoBehaviour {
 
 				if (Vector3.Distance (player.position, this.transform.position) < 2) {
 
+					anim.SetBool("isRunning",false);
 					state = 3;
 
 				}
