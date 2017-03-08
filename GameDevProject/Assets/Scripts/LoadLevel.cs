@@ -10,9 +10,10 @@ public class LoadLevel : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 
+		LevelToLoad ++;
+
 		if(other.gameObject.tag == "player"){
 
-			LevelToLoad ++;
 			SceneManager.LoadScene (LevelToLoad);
 
 		}
