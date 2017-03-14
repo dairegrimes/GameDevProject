@@ -181,6 +181,11 @@ Prefab:
       propertyPath: m_Speed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114340829780028776, guid: bfd2d651db46245ba9b6df3e4179c07c,
+        type: 2}
+      propertyPath: levelNumber
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bfd2d651db46245ba9b6df3e4179c07c, type: 2}
   m_IsPrefabParent: 0
@@ -575,6 +580,23 @@ Transform:
   m_Father: {fileID: 320090047}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &881008037 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 149790, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
+  m_PrefabInternal: {fileID: 1215958647}
+--- !u!114 &881008038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 881008037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88d5203296984010ada913a585d6301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: -20
+  level: 2
 --- !u!1 &892946101
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,6 +1605,11 @@ Prefab:
         type: 2}
       propertyPath: m_Speed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114340829780028776, guid: bfd2d651db46245ba9b6df3e4179c07c,
+        type: 2}
+      propertyPath: levelNumber
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bfd2d651db46245ba9b6df3e4179c07c, type: 2}

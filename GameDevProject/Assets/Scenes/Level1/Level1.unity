@@ -1103,6 +1103,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -88.47401
       objectReference: {fileID: 0}
+    - target: {fileID: 114340829780028776, guid: bfd2d651db46245ba9b6df3e4179c07c,
+        type: 2}
+      propertyPath: levelNumber
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bfd2d651db46245ba9b6df3e4179c07c, type: 2}
   m_IsPrefabParent: 0
@@ -1194,7 +1199,7 @@ Light:
   serializedVersion: 7
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.81
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1371,6 +1376,23 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8a2be524b35a4799a69cb04b39dfd5a, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1996393777 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 149790, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
+  m_PrefabInternal: {fileID: 825886585}
+--- !u!114 &1996393778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1996393777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88d5203296984010ada913a585d6301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: -20
+  level: 1
 --- !u!1 &2051507758
 GameObject:
   m_ObjectHideFlags: 0

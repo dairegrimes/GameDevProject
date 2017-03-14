@@ -411,6 +411,24 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08c96be6f14404608b75c227251a8ccb, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &454578797 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1139940335250178, guid: 08c96be6f14404608b75c227251a8ccb,
+    type: 2}
+  m_PrefabInternal: {fileID: 454578796}
+--- !u!114 &454578798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 454578797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88d5203296984010ada913a585d6301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: -20
+  level: 3
 --- !u!1001 &528013688
 Prefab:
   m_ObjectHideFlags: 0
@@ -664,6 +682,11 @@ Prefab:
         type: 2}
       propertyPath: m_Speed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114340829780028776, guid: bfd2d651db46245ba9b6df3e4179c07c,
+        type: 2}
+      propertyPath: levelNumber
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bfd2d651db46245ba9b6df3e4179c07c, type: 2}
@@ -1767,6 +1790,7 @@ MonoBehaviour:
   - {fileID: 1063198508}
   player: {fileID: 322420333}
   maxRayDistance: 15
+  levelNumber: 3
 --- !u!195 &2026095895
 NavMeshAgent:
   m_ObjectHideFlags: 0

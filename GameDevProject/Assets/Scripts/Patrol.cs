@@ -15,7 +15,8 @@ public class Patrol : MonoBehaviour {
 	private UnityEngine.AI.NavMeshAgent agent;
 	static Animator anim;
 	public float maxRayDistance = 15;
-	LoadLevel startAgain;
+	//LoadLevel startAgain;
+	public int levelNumber;
 
 	private int state = 1;
 
@@ -25,7 +26,7 @@ public class Patrol : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 
 		//startAgain = new LoadLevel ();
-		startAgain = gameObject.AddComponent<LoadLevel>();
+		//startAgain = gameObject.AddComponent<LoadLevel>();
 		//startAgain.LevelToLoad = ;
 		//gFactionData = gameObject.AddComponent<FactionData>();
 
@@ -139,7 +140,8 @@ public class Patrol : MonoBehaviour {
 	IEnumerator Delay() {
 		
 		yield return new WaitForSeconds(2);
-		SceneManager.LoadScene (startAgain.LevelToLoad);
+		//SceneManager.LoadScene (startAgain.LevelToLoad);
+		SceneManager.LoadScene (levelNumber); 
 	}
 
 }
