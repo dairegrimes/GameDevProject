@@ -13,6 +13,5 @@ void FixedUpdate () {
 		if (transform.position.y < threshold)
 
 			SceneManager.LoadScene (level);
-			
 	}
 }

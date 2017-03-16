@@ -6,21 +6,95 @@ public class PlayerMovement : MonoBehaviour {
 
 
 
-	private float speed = 10.0f;
-	// Use this for initialization
-	void Start () {
-		
+	public float inputDelay = 0.1f;
+	public float forwardVel = 12;
+	public float rotateVel = 100;
+	static Animator anim;
+	private int state = 1;
+
+	Quaternion targetRotation;
+	Rigidbody rBody;
+	float forwardInput, turnInput;
+
+	public Quaternion TargetRotation
+	{
+		get{ return targetRotation; }
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
 
-		float moveX = Input.GetAxis("Horizontal");
-		float moveZ = Input.GetAxis ("Vertical");
+	void Start()
+	{
+		anim = GetComponent<Animator>();
+		targetRotation = transform.rotation;
 
-		Vector3 movement = new Vector3 (moveX, 0f, moveZ);
-		GetComponent<Rigidbody> ().velocity = movement * speed;
-		 
-		
+		if(GetComponent<Rigidbody>())
+		{
+			rBody = GetComponent<Rigidbody> ();
+		}
+
+		else
+		{
+			Debug.LogError("Need rigid Body");
+		}
+
+		forwardInput = turnInput = 0;
+
+	}
+
+	void GetInput()
+	{
+		forwardInput = Input.GetAxis("Vertical");
+		turnInput = Input.GetAxis("Horizontal");
+	}
+
+	void Update()
+	{
+		GetInput();
+		Turn();
+
+		switch (state) 
+		{
+		case 1:
+			{
+				anim.SetBool ("isRunning", false);
+				anim.SetBool ("isIdle", true);
+			}
+			break;
+
+		case 2 :
+			{
+				anim.SetBool ("isIdle", false);
+				anim.SetBool ("isRunning", true);
+			}
+			break;
+		}
+
+
+	}
+
+	void FixedUpdate()
+	{
+		Run();
+	}
+
+	void Run()
+	{
+		if(Mathf.Abs(forwardInput) > inputDelay)
+		{
+			rBody.velocity = transform.forward * forwardInput * forwardVel;
+			state = 2;
+		}
+
+		else
+		{
+			rBody.velocity = Vector3.zero;
+			state = 1;
+		}
+	}
+
+	void Turn()
+	{
+		targetRotation *= Quaternion.AngleAxis(rotateVel * turnInput * Time.deltaTime,Vector3.up);
+		transform.rotation = targetRotation;
 	}
 }
+
