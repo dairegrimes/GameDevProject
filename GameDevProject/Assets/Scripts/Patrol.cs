@@ -25,26 +25,9 @@ public class Patrol : MonoBehaviour {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 		anim = GetComponent<Animator> ();
 
-		//startAgain = new LoadLevel ();
-		//startAgain = gameObject.AddComponent<LoadLevel>();
-		//startAgain.LevelToLoad = ;
-		//gFactionData = gameObject.AddComponent<FactionData>();
-
-		// Disabling auto-braking allows for continuous movement
-		// between points (ie, the agent doesn't slow down as it
-		// approaches a destination point).
-
-		//agent.autoBraking = false;
-		//GotoNextPoint ();
 
 		}
 
-
-	void FixedUpdate() {
-
-
-
-	}
 
 
 
@@ -65,22 +48,7 @@ public class Patrol : MonoBehaviour {
 
 
 	void Update () {
-		// Choose the next destination point when the agent gets
-		// close to the current one.
 
-		/*
-		Ray ray = new Ray (transform.position,Vector3.forward);
-
-		RaycastHit hit;
-
-		Debug.DrawLine (transform.position, transform.position + Vector3.forward * maxRayDistance,Color.red);
-
-		if(Physics.Raycast(ray, out hit, maxRayDistance)) {
-
-			Debug.Log ("hello");
-
-		}
-		*/
 
 		Vector3 direction = player.position - this.transform.position;
 		float angle = Vector3.Angle(direction,this.transform.forward);

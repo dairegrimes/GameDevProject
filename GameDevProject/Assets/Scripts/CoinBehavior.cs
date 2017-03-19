@@ -23,6 +23,7 @@ public class CoinBehavior : MonoBehaviour {
 		
 	}
 
+
 	void OnTriggerEnter(Collider other) {
 
 		if(other.gameObject.tag == "player"){
